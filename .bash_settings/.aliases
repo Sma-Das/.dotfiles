@@ -1,0 +1,39 @@
+# File of generic aliases for any linux system
+
+# Navigation
+alias ..='cd ..'
+alias ...='cd ../../'
+alias dl='cd ~/Downloads'
+alias doc='cd ~/Documents'
+alias dt='cd ~/Desktop'
+
+# Doppelgangers of tedious names
+alias close='killall'
+alias cls='clear'
+
+# Common tools
+alias ghist='history|grep'
+alias reload='exec '\''/bin/bash'\'''
+alias count='find . -type f | wc -l'
+alias resize='printf '\''\e[8;70;110t'\'';clear'
+alias rpaste='`pbpaste`'
+alias t2='tree -L 2'
+alias ls='ls -A'
+# alias restart='exec /bin/bash -l'
+
+
+
+# Adding functionality to default commands
+alias grep='grep --color=auto'
+alias mv='mv -i'
+alias pip='/usr/local/bin/pip3'
+alias python3='python'
+
+# macOS specific
+alias empty='sudo rm -rfi ~/.Trash'
+
+# Generated
+alias docker-machine='__docker_machine_wrapper'
+
+# Custom but useful command
+# alias respot='killall Spotify && opena Spotify.app && spotify play'

@@ -1,0 +1,25 @@
+# Enable tab completion for `g` by marking it as an alias for `git`
+if type _git &> /dev/null; then
+	complete -o default -o nospace -F _git g;
+fi;
+
+# Add tab completion for `defaults read|write NSGlobalDomain`
+# You could just use `-g` instead, but I like being explicit
+complete -W "NSGlobalDomain" defaults;
+
+
+quick_kill=("Contacts Calendar Dock Finder Safari iTunes SystemUIServer Terminal Spotify Discord Atom iTerm2 zoom.us Kite")
+
+# Add `killall` tab completion for common apps
+complete -o "nospace" -W "$(printf "%s\n" "${quick_kill[@]}")" killall;
+
+# close is an alias for killall
+complete -o "nospace" -W "$(printf "%s\n" "${quick_kill[@]}")" close;
+
+# WIP trying to list items in Application folder
+# Current issue is showing applications with a name
+# complete -o "nospace" -W $"ls -b1A /Applications";
+
+# openl is an alias for open and opening links via the command line
+
+complete -o "nospace" -W "google.com github.com gmail.com" openl;

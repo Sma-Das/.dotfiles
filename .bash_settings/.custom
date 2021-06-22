@@ -1,0 +1,6 @@
+#!/usr/local/bin/bash
+
+for file in ~/bash_settings/.custom_{aliases,functions,complete}; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
