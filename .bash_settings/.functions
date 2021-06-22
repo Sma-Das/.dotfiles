@@ -19,7 +19,7 @@ find() {
 }
 
 
-rename() {
+function rename() {
     for i in $1*
     do
         mv "$i" "${i/$1/$2}"
@@ -27,7 +27,7 @@ rename() {
 }
 
 # Open applications from a single command, macOS specific
-opena() {
+function opena() {
 	command open "/Applications/$1" -j;
 }
 
@@ -212,4 +212,8 @@ function o() {
 # small enough for one screen.
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+}
+
+openl() {
+	command open "https://$@"
 }
