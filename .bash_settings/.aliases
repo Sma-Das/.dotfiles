@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # File of generic aliases for any linux system
 
 # Navigation
@@ -13,15 +15,14 @@ alias cls='clear'
 
 # Common tools
 alias ghist='history|grep'
-alias reload='exec '\''/bin/bash'\'''
+alias reload='exec '\''/usr/local/bin/bash'\''' # macOS variant
+# alias reload='exec '\''/bin/bash'\''' # Traditional variant
 alias count='find . -type f | wc -l'
 alias resize='printf '\''\e[8;70;110t'\'';clear'
 alias rpaste='`pbpaste`'
 alias t2='tree -L 2'
 alias ls='ls -A'
 # alias restart='exec /bin/bash -l'
-
-
 
 # Adding functionality to default commands
 alias grep='grep --color=auto'
