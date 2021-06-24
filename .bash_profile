@@ -12,7 +12,7 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # Source complementary files for bash
-for file in ~/bash_settings/.{path,bash_prompt,exports,aliases,functions,custom,complete}; do
+for file in ~/.bash_settings/.{path,bash_prompt,exports,aliases,functions,custom,complete}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
@@ -34,10 +34,11 @@ for option in autocd globstar; do
 done;
 
 # Add tab completion for many Bash commands
-if which brew &> /dev/null && [ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]; then
+prefix=$(brew --prefix)
+if which brew &> /dev/null && [ -r "$prefix/etc/profile.d/bash_completion.sh" ]; then
         # Ensure existing Homebrew v1 completions continue to work
-        export BASH_COMPLETION_COMPAT_DIR="$(brew --prefix)/etc/bash_completion.d";
-        source "$(brew --prefix)/etc/profile.d/bash_completion.sh";
+        export BASH_COMPLETION_COMPAT_DIR="$prefix/etc/bash_completion.d";
+        source "$prefix/etc/profile.d/bash_completion.sh";
 elif [ -f /etc/bash_completion ]; then
         source /etc/bash_completion;
 fi;
@@ -45,7 +46,6 @@ fi;
 if [ -f ~/.git-completion.bash ]; then
   source ~/.git-completion.bash
 fi
-unset PREFIX
 
 # No idea what this is
 # printf "protocol=https\nhost=github.com\n" | git credential-osxkeychain erase
